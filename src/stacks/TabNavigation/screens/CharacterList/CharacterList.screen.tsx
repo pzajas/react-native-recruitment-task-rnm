@@ -1,8 +1,7 @@
-import {View, Text, Button} from 'react-native';
-import React from 'react';
-import {styles} from './CharacterList.styled';
 import {useNavigation} from '@react-navigation/native';
+import {Button, Text, View} from 'react-native';
 import {MainStackNavigationProp} from '../../../Main/Main.routes';
+import {styles} from './CharacterList.styled';
 
 const CharacterListScreen = () => {
   const {navigate} = useNavigation<MainStackNavigationProp>();
