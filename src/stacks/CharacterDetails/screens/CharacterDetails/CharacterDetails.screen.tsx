@@ -1,11 +1,12 @@
 import {Text, View} from 'react-native';
-import React from 'react';
 import {styles} from './CharacterDetails.styled';
 
-const CharacterDetailsScreen = () => {
+const CharacterDetailsScreen = ({route}) => {
+  const {characterName} = route.params;
+
   return (
     <View style={styles.container}>
-      <Text>Implement CharacterDetailsScreen</Text>
+      <Text>{characterName}</Text>
     </View>
   );
 };
