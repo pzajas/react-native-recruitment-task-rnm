@@ -9,6 +9,7 @@ export const theme = {
       light: '#F4F6F5',
     },
     white: '#ffffff',
+    black: '#000000',
   },
   fonts: {
     regular: 'Inter-Regular',

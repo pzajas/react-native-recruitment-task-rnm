@@ -1,11 +1,12 @@
+import React from 'react';
 import {Image, View} from 'react-native';
 import {styles} from './Footer.styled';
 
 export const Footer = () => (
-  <View style={styles.footer}>
+  <View style={styles.remainingView}>
     <Image
       source={require('../../../assets/images/footer.png')}
-      style={styles.footerImage}
+      style={styles.coverImage}
     />
   </View>
 );
