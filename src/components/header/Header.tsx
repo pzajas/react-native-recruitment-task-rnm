@@ -1,12 +1,11 @@
-import {Image, ImageSourcePropType, View} from 'react-native';
+import {Image, View} from 'react-native';
 import {styles} from '../header/Header.styled';
 
-interface HeaderProps {
-  imageSource: ImageSourcePropType;
-}
-
-export const Header = ({imageSource}: HeaderProps) => (
+export const Header = () => (
   <View style={styles.header}>
-    <Image source={imageSource} style={styles.headerImage} />
+    <Image
+      source={require('../../../assets/images/nav.png')}
+      style={styles.headerImage}
+    />
   </View>
 );
