@@ -1,5 +1,7 @@
-import {useNavigation} from '@react-navigation/native'; // Import from @react-navigation/native
-import {Image, Pressable, Text, View} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import {useSetAtom} from 'jotai';
+import {Image, Pressable, Text, TouchableOpacity, View} from 'react-native';
+import {favoritesAtom} from '../../../../../../services/state/state';
 import {Character} from '../../../../../../typescript/characterTypes';
 import {truncateLongString} from '../../../../../../utils/truncateLongString';
 import {MainStackNavigationProp} from '../../../../../Main/Main.routes';
@@ -10,6 +12,7 @@ interface CharacterCardProps {
 
 export const CharacterCard = ({character}: CharacterCardProps) => {
   const {navigate} = useNavigation<MainStackNavigationProp>();
+  const addToFavorites = useSetAtom(favoritesAtom);
 
   const details = [
     {label: 'NAME', value: character.name},
@@ -26,6 +29,10 @@ export const CharacterCard = ({character}: CharacterCardProps) => {
     });
   };
 
+  const handleAddToFavorites = () => {
+    addToFavorites(prev => [...prev, character]);
+  };
+
   return (
     <Pressable onPress={handlePress}>
       <View style={styles.card}>
@@ -38,6 +45,11 @@ export const CharacterCard = ({character}: CharacterCardProps) => {
           ))}
         </View>
         <Image source={{uri: character.image}} style={styles.image} />
+        <TouchableOpacity
+          style={styles.addButton}
+          onPress={handleAddToFavorites}>
+          <Text style={styles.addButtonText}>+</Text>
+        </TouchableOpacity>
       </View>
     </Pressable>
   );
