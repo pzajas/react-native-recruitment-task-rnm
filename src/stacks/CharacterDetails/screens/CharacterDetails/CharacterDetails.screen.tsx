@@ -7,9 +7,9 @@ import {GoBackButton} from './components/header/GoBackButton';
 import {Header} from './components/header/Header';
 import {styles} from './styles/CharacterDetailsScreen.styled';
 
-export default function CharacterDetailsScreen({
+export const CharacterDetailsScreen = ({
   route,
-}: CharacterDetailsScreenProps) {
+}: CharacterDetailsScreenProps) => {
   useNavigationBarColor('rgba(0,0,0,0)');
 
   const character = route?.params?.character;
@@ -22,4 +22,4 @@ export default function CharacterDetailsScreen({
       <Footer />
     </View>
   );
-}
+};
