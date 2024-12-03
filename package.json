@@ -10,6 +10,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^2.1.0",
     "@react-native-community/checkbox": "^0.5.17",
     "@react-navigation/bottom-tabs": "^7.0.1",
     "@react-navigation/native": "^7.0.0",
@@ -18,6 +19,8 @@
     "@tanstack/react-query": "^5.62.0",
     "axios": "^1.7.8",
     "jotai": "^2.10.3",
+    "jotai-devtools": "^0.10.1",
+    "jotai-utils": "^0.0.0",
     "react": "18.3.1",
     "react-native": "0.76.1",
     "react-native-navigation-bar": "^0.2.1",
