@@ -1,4 +1,4 @@
-import {Header} from '../../../components/header';
+import {Header, HeaderText} from '../../../components/header';
 import {theme} from '../../../styles/theme';
 import {TabIcon} from '../components';
 import {styles} from '../TabNavigationStack.styled';
@@ -13,7 +13,10 @@ export const screenOptions = ({route}: any) => ({
 
 export const tabScreenOptions = {
   header: () => (
-    <Header imageSource={require('../../../../assets/images/nav.png')} />
+    <>
+      <Header imageSource={require('../../../../assets/images/nav.png')} />
+      <HeaderText />
+    </>
   ),
   tabBarActiveBackgroundColor: theme.colors.green.dark,
   tabBarInactiveBackgroundColor: theme.colors.green.dark,

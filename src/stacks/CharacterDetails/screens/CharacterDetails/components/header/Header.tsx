@@ -1,5 +1,3 @@
-// CharacterHeader.js
-
 import {Image, View} from 'react-native';
 import {styles} from '../../styles/CharacterHeader.styled';
 

@@ -8,3 +8,7 @@ export const characterDetailsConstants = {
   ADD_TO_LIKED: 'ADD TO LIKED',
   NAME: 'NAME',
 };
+
+export const characterListConstants = {
+  CHARACTERS: 'Characters',
+};
