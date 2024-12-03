@@ -51,4 +51,12 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 18,
   },
+  imageContainer: {
+    position: 'relative',
+  },
+  likeButtonContainer: {
+    position: 'absolute',
+    bottom: 10,
+    right: 10,
+  },
 });
