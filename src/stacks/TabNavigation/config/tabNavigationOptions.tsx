@@ -14,7 +14,7 @@ export const screenOptions = ({route}: any) => ({
 export const tabScreenOptions = {
   header: () => (
     <>
-      <Header imageSource={require('../../../../assets/images/nav.png')} />
+      <Header />
       <HeaderText />
     </>
   ),

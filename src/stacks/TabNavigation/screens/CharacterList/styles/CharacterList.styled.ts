@@ -8,4 +8,7 @@ export const styles = StyleSheet.create({
     paddingTop: 16,
     backgroundColor: theme.colors.white,
   },
+  flatlist: {
+    marginTop: 16,
+  },
 });

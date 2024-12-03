@@ -1,7 +1,6 @@
 import {TextInput, TouchableOpacity, View} from 'react-native';
 import {CloseIcon} from '../../../../../../../assets/icons/CloseIcon';
 import {SearchIcon} from '../../../../../../../assets/icons/SearchIcon';
-import {scale} from '../../../../../../config/scale';
 import {styles} from '../../styles/SearchBar.styled';
 
 interface SearchBarProps {
@@ -17,11 +16,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
 
   return (
     <View style={styles.searchContainer}>
-      <SearchIcon
-        width={scale * 20}
-        height={scale * 20}
-        style={styles.searchIcon}
-      />
+      <SearchIcon style={styles.searchIcon} />
       <TextInput
         placeholder="Search the characters..."
         value={searchQuery}
