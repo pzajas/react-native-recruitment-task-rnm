@@ -1,17 +1,9 @@
 import {useNavigation} from '@react-navigation/native'; // Import from @react-navigation/native
 import {Image, Pressable, Text, View} from 'react-native';
+import {Character} from '../../../../../../typescript/characterTypes';
 import {truncateLongString} from '../../../../../../utils/truncateLongString';
 import {MainStackNavigationProp} from '../../../../../Main/Main.routes';
 import {styles} from '../../styles/CharacterCard.styled';
-interface Character {
-  id: number;
-  name: string;
-  status: string;
-  origin: string;
-  species: string;
-  gender: string;
-  image: string;
-}
 interface CharacterCardProps {
   character: Character;
 }

@@ -3,7 +3,7 @@ import {scale} from '../../src/config/scale';
 import {theme} from '../../src/styles/theme';
 
 export const SearchIcon = (props: SvgProps) => (
-  <Svg width={scale * 14} height={scale * 14} fill="none" {...props}>
+  <Svg width={scale * 20} height={scale * 20} fill="none" {...props}>
     <Path
       stroke={theme.colors.green.dark}
       strokeWidth={1.5}
