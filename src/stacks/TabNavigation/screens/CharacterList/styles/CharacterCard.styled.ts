@@ -35,4 +35,28 @@ export const styles = StyleSheet.create({
     height: 200,
     borderRadius: 24,
   },
+  addButton: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    backgroundColor: '#2196F3',
+    borderRadius: 20,
+    width: 30,
+    height: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  addButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 18,
+  },
+  imageContainer: {
+    position: 'relative',
+  },
+  likeButtonContainer: {
+    position: 'absolute',
+    bottom: 10,
+    right: 10,
+  },
 });
