@@ -4,7 +4,7 @@ import {
   CharacterFilterValues,
 } from '../typescript/filterTypes';
 
-const useCharacterFilter = (characters: CharacterFilterValues[]) => {
+export const useCharacterFilter = (characters: CharacterFilterValues[]) => {
   const [statusFilter, setStatusFilter] = useState<CharacterFilters>({
     alive: false,
     dead: false,
@@ -86,5 +86,3 @@ const useCharacterFilter = (characters: CharacterFilterValues[]) => {
     applyFilters,
   };
 };
-
-export default useCharacterFilter;

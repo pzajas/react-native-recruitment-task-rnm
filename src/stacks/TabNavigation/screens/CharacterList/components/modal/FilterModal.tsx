@@ -1,52 +1,34 @@
-import {Modal, Text, TouchableOpacity, View} from 'react-native';
-import {BlankCheck} from '../../../../../../../assets/icons/BlankCheck';
-import {CheckedCheck} from '../../../../../../../assets/icons/CheckedCheck';
+import {Modal, View} from 'react-native';
 import {PrimaryButton} from '../../../../../../components/buttons/PrimaryButton';
+import {FilterModalProps} from '../../../../../../typescript/filterTypes';
 import {styles} from './FilterModal.styled';
+import {FilterSection} from './FilterSection';
 
 export const FilterModal = ({
-  statusFilter = {alive: false, dead: false, unknown: false},
-  speciesFilter = {human: false, humanoid: false},
+  statusFilter,
+  speciesFilter,
   toggleFilter,
   applyFilters,
   resetFilters,
   isModalVisible,
   setIsModalVisible,
-}) => {
+}: FilterModalProps) => {
   return (
     <Modal visible={isModalVisible} animationType="slide" transparent={true}>
       <View style={styles.modalOverlay}>
         <View style={styles.modalContainer}>
-          <View style={styles.filterSection}>
-            <Text style={styles.filterLabel}>STATUS</Text>
-            {['alive', 'dead', 'unknown'].map(status => (
-              <TouchableOpacity
-                key={status}
-                style={styles.filterOption}
-                onPress={() => toggleFilter('status', status)}>
-                {statusFilter[status] ? <CheckedCheck /> : <BlankCheck />}
-                <Text style={styles.filterOptionText}>
-                  {status.charAt(0).toUpperCase() + status.slice(1)}
-                </Text>
-              </TouchableOpacity>
-            ))}
-          </View>
-
-          <View style={styles.filterSection}>
-            <Text style={styles.filterLabel}>SPECIES</Text>
-            {['human', 'humanoid'].map(species => (
-              <TouchableOpacity
-                key={species}
-                style={styles.filterOption}
-                onPress={() => toggleFilter('species', species)}>
-                {speciesFilter[species] ? <CheckedCheck /> : <BlankCheck />}
-                <Text style={styles.filterOptionText}>
-                  {species.charAt(0).toUpperCase() + species.slice(1)}
-                </Text>
-              </TouchableOpacity>
-            ))}
-          </View>
-
+          <FilterSection
+            title="status"
+            options={['alive', 'dead', 'unknown']}
+            selectedOptions={statusFilter}
+            toggleFilter={toggleFilter}
+          />
+          <FilterSection
+            title="species"
+            options={['human', 'humanoid']}
+            selectedOptions={speciesFilter}
+            toggleFilter={toggleFilter}
+          />
           <View style={styles.buttonsContainer}>
             <PrimaryButton filled={false} onPress={resetFilters}>
               RESET

@@ -1,14 +1,15 @@
-import {useEffect, useState} from 'react';
-import {FlatList, StyleSheet, Text, View} from 'react-native';
+import {useState} from 'react';
+import {FlatList, Text, View} from 'react-native';
 import {PrimaryButton} from '../../../../components/buttons/PrimaryButton';
 import {NoResultsMessage} from '../../../../components/errors/NoresultsMessage';
 import {LoadingIndicator} from '../../../../components/indicators/LoadingIndicator';
-import useCharacterFilter from '../../../../hooks/useFilters';
+import {useCharacterFilter} from '../../../../hooks/useFilters';
 import {useCharacters} from '../../../../services/hooks/useCharacters';
 import {useSearchCharacters} from '../../../../services/hooks/useSearchCharacters';
 import {CharacterCard} from './components/card/CharacterCard';
 import {FilterModal} from './components/modal/FilterModal';
 import {SearchBar} from './components/searchbar/SearchBar';
+import {styles} from './styles/CharacterList.styled';
 
 function CharacterList() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -20,6 +21,7 @@ function CharacterList() {
     hasNextPage,
     isFetchingNextPage,
   } = useCharacters();
+
   const {data: searchData, isFetching: isSearching} =
     useSearchCharacters(searchQuery);
 
@@ -27,7 +29,6 @@ function CharacterList() {
     ? searchData?.results
     : paginatedData?.pages?.flatMap(page => page.results);
 
-  // Use the filtering hook
   const {
     filteredCharacters,
     toggleFilter,
@@ -52,12 +53,6 @@ function CharacterList() {
     }
   };
 
-  useEffect(() => {
-    if (!searchQuery) {
-      resetFilters();
-    }
-  }, [searchQuery]);
-
   return (
     <View style={styles.container}>
       <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
@@ -78,7 +73,7 @@ function CharacterList() {
           showsVerticalScrollIndicator={false}
           onEndReached={handleEndReached}
           onEndReachedThreshold={0.5}
-          style={{marginTop: 16}}
+          style={styles.flatlist}
         />
       )}
 
@@ -96,13 +91,5 @@ function CharacterList() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    padding: 16,
-  },
-});
 
 export default CharacterList;

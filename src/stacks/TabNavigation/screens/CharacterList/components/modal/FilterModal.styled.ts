@@ -1,6 +1,4 @@
-// styled.ts
 import {StyleSheet} from 'react-native';
-import {scale} from '../../../../../../config/scale';
 import {theme} from '../../../../../../styles/theme';
 
 export const styles = StyleSheet.create({
@@ -8,7 +6,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: 'rgba(0, 0, 0, 0.2)',
   },
   modalContainer: {
     width: '80%',
@@ -21,11 +19,9 @@ export const styles = StyleSheet.create({
     marginBottom: 20,
   },
   filterLabel: {
-    textAlign: 'left',
-    fontFamily: 'Mono-Regular',
+    fontSize: 16,
     fontWeight: '600',
     marginBottom: 10,
-    fontSize: scale * 16,
   },
   filterOption: {
     flexDirection: 'row',
@@ -33,7 +29,7 @@ export const styles = StyleSheet.create({
     paddingVertical: 5,
   },
   filterOptionText: {
-    fontSize: scale * 16,
+    fontSize: 16,
     marginLeft: 10,
   },
   buttonsContainer: {
