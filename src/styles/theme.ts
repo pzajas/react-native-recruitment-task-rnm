@@ -11,6 +11,7 @@ export const theme = {
     },
     white: '#ffffff',
     black: '#000000',
+    gold: '#F89F34',
   },
   fonts: {
     regular: 'Inter-Regular',

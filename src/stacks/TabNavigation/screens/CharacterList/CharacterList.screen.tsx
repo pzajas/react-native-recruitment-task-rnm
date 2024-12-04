@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import {FlatList, Text, View} from 'react-native';
 import {PrimaryButton} from '../../../../components/buttons/PrimaryButton';
 import {NoResultsMessage} from '../../../../components/errors/NoresultsMessage';

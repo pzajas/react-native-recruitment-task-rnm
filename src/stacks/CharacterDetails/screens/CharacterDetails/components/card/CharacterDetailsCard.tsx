@@ -30,7 +30,7 @@ export function CharacterDetailsCard({character}: {character: Character}) {
           </View>
         </View>
 
-        <AddToLikedButton />
+        <AddToLikedButton character={character} />
       </View>
     </View>
   );

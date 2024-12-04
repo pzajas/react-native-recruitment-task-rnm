@@ -1,4 +1,3 @@
-// FilterOption.tsx
 import {Pressable, Text} from 'react-native';
 import {BlankCheck} from '../../../../../../../assets/icons/BlankCheck';
 import {CheckedCheck} from '../../../../../../../assets/icons/CheckedCheck';
