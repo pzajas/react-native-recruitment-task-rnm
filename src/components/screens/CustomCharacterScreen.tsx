@@ -35,9 +35,16 @@ export const CustomCharacterListScreen = ({
     applyFilters,
   } = useCharacterFilter(data);
 
+  const filtersApplied =
+    statusFilter.alive ||
+    statusFilter.dead ||
+    statusFilter.unknown ||
+    speciesFilter.human ||
+    speciesFilter.humanoid;
+
   const characters = searchQuery
     ? filteredData
-    : filteredCharacters.length > 0
+    : filtersApplied
     ? filteredCharacters
     : data;
 
@@ -66,7 +73,7 @@ export const CustomCharacterListScreen = ({
 
       {isSearching && <LoadingIndicator />}
 
-      {hasNoResults ? (
+      {hasNoResults || (filtersApplied && characters.length === 0) ? (
         <NoResultsMessage />
       ) : (
         <FlatList
