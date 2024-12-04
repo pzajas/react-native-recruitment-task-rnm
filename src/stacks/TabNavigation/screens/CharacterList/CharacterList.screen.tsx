@@ -4,15 +4,16 @@ import {PrimaryButton} from '../../../../components/buttons/PrimaryButton';
 import {NoResultsMessage} from '../../../../components/errors/NoresultsMessage';
 import {LoadingIndicator} from '../../../../components/indicators/LoadingIndicator';
 import {useCharacterFilter} from '../../../../hooks/useFilters';
+import {useSearch} from '../../../../hooks/useSearchHook';
 import {useCharacters} from '../../../../services/hooks/useCharacters';
 import {useSearchCharacters} from '../../../../services/hooks/useSearchCharacters';
+import {Character} from '../../../../typescript/characterTypes';
 import {CharacterCard} from './components/card/CharacterCard';
 import {FilterModal} from './components/modal/FilterModal';
 import {SearchBar} from './components/searchbar/SearchBar';
 import {styles} from './styles/CharacterList.styled';
 
 function CharacterList() {
-  const [searchQuery, setSearchQuery] = useState('');
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const {
@@ -21,6 +22,12 @@ function CharacterList() {
     hasNextPage,
     isFetchingNextPage,
   } = useCharacters();
+
+  const {searchQuery, setSearchQuery, clearSearch, filteredData} =
+    useSearch<Character>(
+      paginatedData?.pages?.flatMap(page => page.results) || [],
+      character => character.name,
+    );
 
   const {data: searchData, isFetching: isSearching} =
     useSearchCharacters(searchQuery);
@@ -39,7 +46,7 @@ function CharacterList() {
   } = useCharacterFilter(characters);
 
   const dataToDisplay = searchQuery
-    ? searchData?.results
+    ? filteredData
     : filteredCharacters.length > 0
     ? filteredCharacters
     : characters;
@@ -55,8 +62,11 @@ function CharacterList() {
 
   return (
     <View style={styles.container}>
-      <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
-
+      <SearchBar
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        clearSearch={clearSearch}
+      />
       <PrimaryButton filled={true} onPress={() => setIsModalVisible(true)}>
         <Text>FILTER</Text>
       </PrimaryButton>

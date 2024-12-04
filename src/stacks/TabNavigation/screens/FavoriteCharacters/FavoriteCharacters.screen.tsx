@@ -1,10 +1,17 @@
 import {useAtom} from 'jotai';
-import {FlatList, StyleSheet, Text, View} from 'react-native';
+import {FlatList, Text, View} from 'react-native';
+import {useSearch} from '../../../../hooks/useSearchHook';
 import {favoritesAtom} from '../../../../services/state/state';
+import {Character} from '../../../../typescript/characterTypes';
 import {CharacterCard} from '../CharacterList/components/card/CharacterCard';
+import {SearchBar} from '../CharacterList/components/searchbar/SearchBar';
+import {styles} from './FavoriteCharacters.styled';
 
 const FavoriteCharactersScreen = () => {
   const [favorites] = useAtom(favoritesAtom);
+
+  const {searchQuery, setSearchQuery, clearSearch, filteredData} =
+    useSearch<Character>(favorites, character => character.name);
 
   if (favorites.length === 0) {
     return (
@@ -15,33 +22,21 @@ const FavoriteCharactersScreen = () => {
   }
 
   return (
-    <FlatList
-      data={favorites}
-      keyExtractor={item => item?.id?.toString()}
-      renderItem={({item}) => <CharacterCard character={item} />}
-      showsVerticalScrollIndicator={false}
-      style={styles.flatlist}
-    />
+    <View style={styles.container}>
+      <SearchBar
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        clearSearch={clearSearch}
+      />
+      <FlatList
+        data={filteredData}
+        keyExtractor={item => item?.id?.toString()}
+        renderItem={({item}) => <CharacterCard character={item} />}
+        showsVerticalScrollIndicator={false}
+        style={styles.flatlist}
+      />
+    </View>
   );
 };
 
 export default FavoriteCharactersScreen;
-
-export const styles = StyleSheet.create({
-  emptyContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#f5f5f5',
-  },
-  emptyText: {
-    fontSize: 18,
-    color: '#757575',
-    fontWeight: 'bold',
-  },
-  flatlist: {
-    flex: 1,
-    backgroundColor: '#ffffff',
-    padding: 10,
-  },
-});
