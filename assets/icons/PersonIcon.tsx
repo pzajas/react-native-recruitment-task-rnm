@@ -1,5 +1,5 @@
 import Svg, {Path, SvgProps} from 'react-native-svg';
-import {theme} from '../../src/styles/theme';
+import {theme} from '../../src/theme/theme';
 
 export const PersonIcon = (props: SvgProps) => (
   <Svg width={16} height={16} fill="none" {...props}>

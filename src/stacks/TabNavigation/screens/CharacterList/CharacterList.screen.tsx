@@ -1,4 +1,4 @@
-import {CustomCharacterListScreen} from '../../../../components/CustomCharacterScreen';
+import {CustomCharacterListScreen} from '../../../../components/screens/CustomCharacterScreen';
 import {useCharacters} from '../../../../services/hooks/useCharacters';
 
 function CharacterList() {

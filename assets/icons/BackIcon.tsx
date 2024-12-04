@@ -1,5 +1,5 @@
 import Svg, {ClipPath, Defs, G, Path, SvgProps} from 'react-native-svg';
-import {theme} from '../../src/styles/theme';
+import {theme} from '../../src/theme/theme';
 
 export const BackIcon = (props: SvgProps) => (
   <Svg width={12} height={12} viewBox="0 0 24 24" fill="none" {...props}>

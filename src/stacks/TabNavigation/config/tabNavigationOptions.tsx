@@ -1,5 +1,6 @@
-import {Header, HeaderText} from '../../../components/header';
-import {theme} from '../../../styles/theme';
+import {Header} from '../../../components/header/Header';
+import {HeaderText} from '../../../components/header/HeaderText';
+import {theme} from '../../../theme/theme';
 import {TabIcon} from '../components';
 import {styles} from '../TabNavigationStack.styled';
 

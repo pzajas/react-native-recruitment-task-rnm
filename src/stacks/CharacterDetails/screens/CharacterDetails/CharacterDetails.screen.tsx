@@ -1,11 +1,12 @@
 import {View} from 'react-native';
+import {CharacterDetailsCard} from '../../../../components/cards/characterDetailsCard/CharacterDetailsCard';
 import {useNavigationBarColor} from '../../../../hooks/useNavigationBarColor';
 import {CharacterDetailsScreenProps} from '../../../../typescript/characterTypes';
-import {CharacterDetailsCard} from './components/card/CharacterDetailsCard';
-import {Footer} from './components/footer/Footer';
-import {GoBackButton} from './components/header/GoBackButton';
-import {Header} from './components/header/Header';
-import {styles} from './styles/CharacterDetailsScreen.styled';
+
+import {GoBackButton} from '../../../../components/buttons/GoBackButton';
+import {styles} from '../../../../components/cards/characterDetailsCard/CharacterDetailsScreen.styled';
+import {Footer} from '../../../../components/footer/Footer';
+import {Header} from '../../../../components/header/Header';
 
 export const CharacterDetailsScreen = ({
   route,

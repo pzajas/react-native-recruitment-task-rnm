@@ -1,5 +1,5 @@
-import {StyleSheet, Text, View} from 'react-native';
-import {theme} from '../../styles/theme';
+import {Text, View} from 'react-native';
+import {styles} from './NoResultsMessage.styled';
 
 export const NoResultsMessage = () => (
   <View style={styles.noResultsContainer}>
@@ -8,17 +8,3 @@ export const NoResultsMessage = () => (
     </Text>
   </View>
 );
-
-const styles = StyleSheet.create({
-  noResultsContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-  },
-  noResultsText: {
-    fontWeight: '600',
-    textAlign: 'center',
-    fontSize: 18,
-    color: theme.colors.grey.medium,
-  },
-});

@@ -3,11 +3,9 @@ import {
   CharacterDetailsStackNavigationProp,
   CharacterDetailsStackParamList,
 } from '../stacks/CharacterDetails/CharacterDetails.routes';
-
 export interface Origin {
   name: string;
 }
-
 export interface Character {
   id: number;
   name: string;
@@ -17,7 +15,14 @@ export interface Character {
   image: string;
   origin: Origin;
 }
-
+export interface CustomCharacterListScreenProps {
+  data: Character[];
+  isFavorites: boolean;
+  fetchNextPage: () => void;
+  hasNextPage: boolean;
+  isFetchingNextPage: boolean;
+  isSearching: boolean;
+}
 export interface CharacterDetailsScreenProps {
   route: CharacterDetailsScreenRouteProp;
   navigation: CharacterDetailsStackNavigationProp;

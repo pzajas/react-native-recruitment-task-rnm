@@ -46,8 +46,7 @@ export const useCharacterFilter = (characters: CharacterFilterValues[]) => {
 
       const speciesMatches =
         (speciesFilter.human && character.species.toLowerCase() === 'human') ||
-        (speciesFilter.humanoid &&
-          character.species.toLowerCase() === 'humanoid');
+        (speciesFilter.humanoid && character.species === 'Humanoid');
 
       const statusFilterApplied =
         statusFilter.alive || statusFilter.dead || statusFilter.unknown;
