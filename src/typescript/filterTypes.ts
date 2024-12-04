@@ -26,12 +26,15 @@ export interface FilterModalProps {
   isModalVisible: boolean;
   setIsModalVisible: (visible: boolean) => void;
 }
-export interface FilterSectionProps {
-  title: 'status' | 'species';
-  options: string[];
+export type FilterSectionProps = {
+  title: string;
+  options: ('alive' | 'dead' | 'unknown' | 'human' | 'humanoid')[];
   selectedOptions: Record<string, boolean>;
-  toggleFilter: (type: 'status' | 'species', value: string) => void;
-}
+  toggleFilter: (
+    type: 'status' | 'species',
+    value: 'alive' | 'dead' | 'unknown' | 'human' | 'humanoid',
+  ) => void;
+};
 export interface FilterOptionProps {
   label: string;
   selected: boolean;
