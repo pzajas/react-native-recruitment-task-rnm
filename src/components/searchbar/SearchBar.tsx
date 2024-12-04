@@ -1,7 +1,8 @@
 import {TextInput, TouchableOpacity, View} from 'react-native';
-import {CloseIcon} from '../../../../../../../assets/icons/CloseIcon';
-import {SearchIcon} from '../../../../../../../assets/icons/SearchIcon';
-import {styles} from '../../styles/SearchBar.styled';
+import {CloseIcon} from '../../../assets/icons/CloseIcon';
+import {SearchIcon} from '../../../assets/icons/SearchIcon';
+import {styles} from './SearchBar.styled';
+
 interface SearchBarProps {
   searchQuery: string;
   setSearchQuery: React.Dispatch<React.SetStateAction<string>>;

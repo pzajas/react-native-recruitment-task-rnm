@@ -1,6 +1,7 @@
 import {Modal, View} from 'react-native';
-import {PrimaryButton} from '../../../../../../components/buttons/PrimaryButton';
-import {FilterModalProps} from '../../../../../../typescript/filterTypes';
+import {buttonConstants} from '../../constants/commonContsnats';
+import {FilterModalProps} from '../../typescript/filterTypes';
+import {PrimaryButton} from '../buttons/PrimaryButton';
 import {styles} from './FilterModal.styled';
 import {FilterSection} from './FilterSection';
 
@@ -31,7 +32,7 @@ export const FilterModal = ({
           />
           <View style={styles.buttonsContainer}>
             <PrimaryButton filled={false} onPress={resetFilters} width="small">
-              RESET
+              {buttonConstants.CLEAR}
             </PrimaryButton>
             <PrimaryButton
               filled={true}
@@ -40,7 +41,7 @@ export const FilterModal = ({
                 setIsModalVisible(false);
               }}
               width="small">
-              APPLY
+              {buttonConstants.APPLY}
             </PrimaryButton>
           </View>
         </View>

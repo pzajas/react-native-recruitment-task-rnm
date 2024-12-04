@@ -1,5 +1,5 @@
 import Svg, {Path, SvgProps} from 'react-native-svg';
-import {theme} from '../../src/styles/theme';
+import {theme} from '../../src/theme/theme';
 interface StarIconProps extends SvgProps {
   fill?: string;
   stroke?: string;

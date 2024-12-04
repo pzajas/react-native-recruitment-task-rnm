@@ -1,7 +1,7 @@
 import {Pressable, Text} from 'react-native';
-import {BlankCheck} from '../../../../../../../assets/icons/BlankCheck';
-import {CheckedCheck} from '../../../../../../../assets/icons/CheckedCheck';
-import {FilterOptionProps} from '../../../../../../typescript/filterTypes';
+import {BlankCheck} from '../../../assets/icons/BlankCheck';
+import {CheckedCheck} from '../../../assets/icons/CheckedCheck';
+import {FilterOptionProps} from '../../typescript/filterTypes';
 import {styles} from './FilterModal.styled';
 
 export const FilterOption = ({label, selected, onPress}: FilterOptionProps) => {

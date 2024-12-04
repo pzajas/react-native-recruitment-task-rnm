@@ -5,7 +5,7 @@ import {Character} from '../typescript/characterTypes';
 export const useFavorites = () => {
   const [favorites, setFavorites] = useAtom(favoritesAtom);
 
-  const isFavorite = (character: Character) =>
+  const isFavorite = (character: Character): boolean =>
     favorites.some(fav => fav.id === character.id);
 
   const toggleFavorite = (character: Character) => {

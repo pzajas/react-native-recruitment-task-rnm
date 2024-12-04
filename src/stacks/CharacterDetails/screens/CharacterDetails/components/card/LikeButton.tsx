@@ -3,7 +3,7 @@ import {StarIcon} from '../../../../../../../assets/icons/StarIcon';
 import {PrimaryButton} from '../../../../../../components/buttons/PrimaryButton';
 import {characterDetailsConstants} from '../../../../../../constants/commonContsnats';
 import {useFavorites} from '../../../../../../hooks/useFavorites';
-import {theme} from '../../../../../../styles/theme';
+import {theme} from '../../../../../../theme/theme';
 import {Character} from '../../../../../../typescript/characterTypes';
 import {styles} from '../../styles/LikeButton.styled';
 

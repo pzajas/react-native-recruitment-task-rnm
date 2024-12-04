@@ -1,25 +1,16 @@
 import {useState} from 'react';
-import {FlatList, View} from 'react-native';
-import {useCharacterFilter} from '../hooks/useFilters';
-import {useSearch} from '../hooks/useSearchHook';
-import {CharacterCard} from '../stacks/TabNavigation/screens/CharacterList/components/card/CharacterCard';
-import {FilterModal} from '../stacks/TabNavigation/screens/CharacterList/components/modal/FilterModal';
-import {SearchBar} from '../stacks/TabNavigation/screens/CharacterList/components/searchbar/SearchBar';
-import {styles} from '../stacks/TabNavigation/screens/FavoriteCharacters/FavoriteCharacters.styled';
-import {Character} from '../typescript/characterTypes';
-import {PrimaryButton} from './buttons/PrimaryButton';
-import {NoResultsMessage} from './errors/NoresultsMessage';
-import {LoadingIndicator} from './indicators/LoadingIndicator';
-import {CustomText} from './typography/CustomText';
-
-type CustomCharacterListScreenProps = {
-  data: Character[];
-  isFavorites: boolean;
-  fetchNextPage: () => void;
-  hasNextPage: boolean;
-  isFetchingNextPage: boolean;
-  isSearching: boolean;
-};
+import {FlatList, Text, View} from 'react-native';
+import {buttonConstants} from '../../constants/commonContsnats';
+import {useCharacterFilter} from '../../hooks/useFilters';
+import {useSearch} from '../../hooks/useSearchHook';
+import {styles} from '../../stacks/TabNavigation/screens/FavoriteCharacters/FavoriteCharacters.styled';
+import {CustomCharacterListScreenProps} from '../../typescript/characterTypes';
+import {PrimaryButton} from '../buttons/PrimaryButton';
+import {CharacterCard} from '../cards/CharacterListCard';
+import {NoResultsMessage} from '../errors/NoresultsMessage';
+import {LoadingIndicator} from '../indicators/LoadingIndicator';
+import {FilterModal} from '../modal/FilterModal';
+import {SearchBar} from '../searchbar/SearchBar';
 
 export const CustomCharacterListScreen = ({
   data,
@@ -70,7 +61,7 @@ export const CustomCharacterListScreen = ({
         filled={true}
         onPress={() => setIsModalVisible(true)}
         width="medium">
-        <CustomText>FILTER</CustomText>
+        <Text>{buttonConstants.FILTER}</Text>
       </PrimaryButton>
 
       {isSearching && <LoadingIndicator />}

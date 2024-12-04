@@ -1,5 +1,5 @@
 import Svg, {Path, Rect, SvgProps} from 'react-native-svg';
-import {theme} from '../../src/styles/theme';
+import {theme} from '../../src/theme/theme';
 
 export const CheckedCheck = (props: SvgProps) => (
   <Svg width={24} height={24} fill="none" {...props}>

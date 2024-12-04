@@ -1,5 +1,5 @@
 import {Text, View} from 'react-native';
-import {FilterSectionProps} from '../../../../../../typescript/filterTypes';
+import {FilterSectionProps} from '../../typescript/filterTypes';
 import {styles} from './FilterModal.styled';
 import {FilterOption} from './FilterOption';
 

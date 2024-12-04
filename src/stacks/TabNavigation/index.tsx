@@ -1,7 +1,7 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {View} from 'react-native';
-import {Footer} from '../../components/footer';
-import {SCREENS} from '../../constants/screenNames';
+import {Footer} from '../../components/footer/Footer';
+import {buttonConstants} from '../../constants/commonContsnats';
 import {screenOptions, tabScreenOptions} from './config/tabNavigationOptions';
 import {CharacterListScreen} from './screens/CharacterList';
 import {FavoriteCharactersScreen} from './screens/FavoriteCharacters';
@@ -14,12 +14,12 @@ export const TabNavigationStack = () => {
     <View style={styles.container}>
       <Tab.Navigator screenOptions={screenOptions}>
         <Tab.Screen
-          name={SCREENS.ALL_CHARACTERS}
+          name={buttonConstants.ALL_CHARACTERS}
           component={CharacterListScreen}
           options={tabScreenOptions}
         />
         <Tab.Screen
-          name={SCREENS.LIKED_CHARACTERS}
+          name={buttonConstants.LIKED_CHARACTERS}
           component={FavoriteCharactersScreen}
           options={tabScreenOptions}
         />

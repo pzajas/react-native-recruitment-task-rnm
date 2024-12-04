@@ -1,5 +1,5 @@
 import {useAtom} from 'jotai';
-import {CustomCharacterListScreen} from '../../../../components/CustomCharacterScreen';
+import {CustomCharacterListScreen} from '../../../../components/screens/CustomCharacterScreen';
 import {favoritesAtom} from '../../../../services/state/state';
 
 const FavoriteCharactersScreen = () => {

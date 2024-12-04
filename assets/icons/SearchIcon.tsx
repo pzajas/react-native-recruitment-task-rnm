@@ -1,6 +1,6 @@
 import Svg, {Path, SvgProps} from 'react-native-svg';
 import {scale} from '../../src/config/scale';
-import {theme} from '../../src/styles/theme';
+import {theme} from '../../src/theme/theme';
 
 export const SearchIcon = (props: SvgProps) => (
   <Svg width={scale * 20} height={scale * 20} fill="none" {...props}>

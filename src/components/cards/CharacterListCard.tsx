@@ -1,13 +1,14 @@
 import {useNavigation} from '@react-navigation/native';
 import {Image, Pressable, Text, View} from 'react-native';
-import {StarIcon} from '../../../../../../../assets/icons/StarIcon';
-import {PrimaryButton} from '../../../../../../components/buttons/PrimaryButton';
-import {useFavorites} from '../../../../../../hooks/useFavorites';
-import {theme} from '../../../../../../styles/theme';
-import {Character} from '../../../../../../typescript/characterTypes';
-import {truncateLongString} from '../../../../../../utils/truncateLongString';
-import {MainStackNavigationProp} from '../../../../../Main/Main.routes';
-import {styles} from '../../styles/CharacterCard.styled';
+import {StarIcon} from '../../../assets/icons/StarIcon';
+import {buttonConstants} from '../../constants/commonContsnats';
+import {useFavorites} from '../../hooks/useFavorites';
+import {MainStackNavigationProp} from '../../stacks/Main/Main.routes';
+import {theme} from '../../theme/theme';
+import {Character} from '../../typescript/characterTypes';
+import {truncateLongString} from '../../utils/truncateLongString';
+import {PrimaryButton} from '../buttons/PrimaryButton';
+import {styles} from './CharacterListCard.styled';
 
 interface CharacterCardProps {
   character: Character;
@@ -62,7 +63,7 @@ export const CharacterCard = ({character}: CharacterCardProps) => {
                   }
                 />
               }>
-              <Text>LIKE</Text>
+              <Text>{buttonConstants.LIKE}</Text>
             </PrimaryButton>
           </View>
         </View>

@@ -15,10 +15,6 @@ export const theme = {
   },
   fonts: {
     interRegular: 'Inter-Regular',
-    interMedium: 'Inter-Medium',
     monoRegular: 'Mono-Regular',
-    monoMediuim: 'Mono-Medium',
-    inter: 'Inter-Regular',
-    mono: 'Mono-Regular',
   },
 };
