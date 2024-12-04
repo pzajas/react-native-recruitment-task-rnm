@@ -10,6 +10,7 @@ export const styles = StyleSheet.create({
   },
   flatlist: {
     backgroundColor: '#ffffff',
+    marginTop: 16,
   },
   emptyContainer: {
     flex: 1,

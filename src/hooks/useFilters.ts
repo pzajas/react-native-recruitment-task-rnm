@@ -9,6 +9,9 @@ export const useCharacterFilter = (characters: CharacterFilterValues[]) => {
     alive: false,
     dead: false,
     unknown: false,
+  });
+
+  const [speciesFilter, setSpeciesFilter] = useState<CharacterFilters>({
     human: false,
     humanoid: false,
   });
@@ -19,7 +22,7 @@ export const useCharacterFilter = (characters: CharacterFilterValues[]) => {
 
   const toggleFilter = (
     type: 'status' | 'species',
-    value: keyof CharacterFilters,
+    value: 'alive' | 'dead' | 'unknown' | 'human' | 'humanoid',
   ) => {
     if (type === 'status') {
       setStatusFilter(prevState => ({
@@ -27,7 +30,7 @@ export const useCharacterFilter = (characters: CharacterFilterValues[]) => {
         [value]: !prevState[value],
       }));
     } else if (type === 'species') {
-      setStatusFilter(prevState => ({
+      setSpeciesFilter(prevState => ({
         ...prevState,
         [value]: !prevState[value],
       }));
@@ -35,35 +38,30 @@ export const useCharacterFilter = (characters: CharacterFilterValues[]) => {
   };
 
   const applyFilters = () => {
-    if (
-      statusFilter.alive ||
-      statusFilter.dead ||
-      statusFilter.unknown ||
-      statusFilter.human ||
-      statusFilter.humanoid
-    ) {
-      const filtered = characters.filter(character => {
-        const statusMatches =
-          (statusFilter.alive && character.status === 'Alive') ||
-          (statusFilter.dead && character.status === 'Dead') ||
-          (statusFilter.unknown && character.status === 'Unknown');
-        const speciesMatches =
-          (statusFilter.human && character.species === 'Human') ||
-          (statusFilter.humanoid && character.species === 'Humanoid');
+    const filtered = characters.filter(character => {
+      const statusMatches =
+        (statusFilter.alive && character.status === 'Alive') ||
+        (statusFilter.dead && character.status === 'Dead') ||
+        (statusFilter.unknown && character.status === 'unknown');
 
-        return (
-          (statusMatches ||
-            (!statusFilter.alive &&
-              !statusFilter.dead &&
-              !statusFilter.unknown)) &&
-          (speciesMatches || (!statusFilter.human && !statusFilter.humanoid))
-        );
-      });
+      const speciesMatches =
+        (speciesFilter.human && character.species.toLowerCase() === 'human') ||
+        (speciesFilter.humanoid &&
+          character.species.toLowerCase() === 'humanoid');
 
-      setFilteredCharacters(filtered);
-    } else {
-      setFilteredCharacters([]);
-    }
+      const statusFilterApplied =
+        statusFilter.alive || statusFilter.dead || statusFilter.unknown;
+
+      const speciesFilterApplied =
+        speciesFilter.human || speciesFilter.humanoid;
+
+      return (
+        (statusFilterApplied ? statusMatches : true) &&
+        (speciesFilterApplied ? speciesMatches : true)
+      );
+    });
+
+    setFilteredCharacters(filtered);
   };
 
   const resetFilters = () => {
@@ -71,6 +69,8 @@ export const useCharacterFilter = (characters: CharacterFilterValues[]) => {
       alive: false,
       dead: false,
       unknown: false,
+    });
+    setSpeciesFilter({
       human: false,
       humanoid: false,
     });
@@ -82,7 +82,7 @@ export const useCharacterFilter = (characters: CharacterFilterValues[]) => {
     toggleFilter,
     resetFilters,
     statusFilter,
-    speciesFilter: statusFilter,
+    speciesFilter,
     applyFilters,
   };
 };

@@ -1,21 +1,7 @@
-import {useState} from 'react';
-import {FlatList, Text, View} from 'react-native';
-import {PrimaryButton} from '../../../../components/buttons/PrimaryButton';
-import {NoResultsMessage} from '../../../../components/errors/NoresultsMessage';
-import {LoadingIndicator} from '../../../../components/indicators/LoadingIndicator';
-import {useCharacterFilter} from '../../../../hooks/useFilters';
-import {useSearch} from '../../../../hooks/useSearchHook';
+import {CustomCharacterListScreen} from '../../../../components/CustomCharacterScreen';
 import {useCharacters} from '../../../../services/hooks/useCharacters';
-import {useSearchCharacters} from '../../../../services/hooks/useSearchCharacters';
-import {Character} from '../../../../typescript/characterTypes';
-import {CharacterCard} from './components/card/CharacterCard';
-import {FilterModal} from './components/modal/FilterModal';
-import {SearchBar} from './components/searchbar/SearchBar';
-import {styles} from './styles/CharacterList.styled';
 
 function CharacterList() {
-  const [isModalVisible, setIsModalVisible] = useState(false);
-
   const {
     data: paginatedData,
     fetchNextPage,
@@ -23,82 +9,15 @@ function CharacterList() {
     isFetchingNextPage,
   } = useCharacters();
 
-  const {searchQuery, setSearchQuery, clearSearch, filteredData} =
-    useSearch<Character>(
-      paginatedData?.pages?.flatMap(page => page.results) || [],
-      character => character.name,
-    );
-
-  const {data: searchData, isFetching: isSearching} =
-    useSearchCharacters(searchQuery);
-
-  const characters = searchQuery
-    ? searchData?.results
-    : paginatedData?.pages?.flatMap(page => page.results);
-
-  const {
-    filteredCharacters,
-    toggleFilter,
-    resetFilters,
-    statusFilter,
-    speciesFilter,
-    applyFilters,
-  } = useCharacterFilter(characters);
-
-  const dataToDisplay = searchQuery
-    ? filteredData
-    : filteredCharacters.length > 0
-    ? filteredCharacters
-    : characters;
-
-  const hasNoResults =
-    searchQuery && (!dataToDisplay || dataToDisplay.length === 0);
-
-  const handleEndReached = () => {
-    if (!searchQuery && hasNextPage && !isFetchingNextPage) {
-      fetchNextPage();
-    }
-  };
-
   return (
-    <View style={styles.container}>
-      <SearchBar
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-        clearSearch={clearSearch}
-      />
-      <PrimaryButton filled={true} onPress={() => setIsModalVisible(true)}>
-        <Text>FILTER</Text>
-      </PrimaryButton>
-
-      {isSearching && <LoadingIndicator />}
-
-      {hasNoResults ? (
-        <NoResultsMessage />
-      ) : (
-        <FlatList
-          data={dataToDisplay}
-          keyExtractor={item => item.id.toString()}
-          renderItem={({item}) => <CharacterCard character={item} />}
-          showsVerticalScrollIndicator={false}
-          onEndReached={handleEndReached}
-          onEndReachedThreshold={0.5}
-          style={styles.flatlist}
-        />
-      )}
-
-      {!searchQuery && isFetchingNextPage && <LoadingIndicator />}
-
-      <FilterModal
-        isModalVisible={isModalVisible}
-        toggleFilter={toggleFilter}
-        resetFilters={resetFilters}
-        statusFilter={statusFilter}
-        speciesFilter={speciesFilter}
-        setIsModalVisible={setIsModalVisible}
-        applyFilters={applyFilters}
-      />
-    </View>
+    <CustomCharacterListScreen
+      data={paginatedData?.pages?.flatMap(page => page.results) || []}
+      isFavorites={false}
+      fetchNextPage={fetchNextPage}
+      hasNextPage={hasNextPage}
+      isFetchingNextPage={isFetchingNextPage}
+      isSearching={false}
+    />
   );
 }
 
