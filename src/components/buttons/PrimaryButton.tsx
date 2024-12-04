@@ -1,28 +1,39 @@
 import {
   GestureResponderEvent,
   Pressable,
-  StyleSheet,
   Text,
   View,
+  ViewStyle,
 } from 'react-native';
-import {scale} from '../../config/scale';
-import {theme} from '../../styles/theme';
+import {styles} from './PrimaryButton.styled';
 
 interface PrimaryButtonProps {
   children: React.ReactNode;
   filled?: boolean;
   onPress: (event: GestureResponderEvent) => void;
+  style?: ViewStyle;
+  icon?: React.ReactNode;
+  width?: 'small' | 'medium' | 'big';
 }
 
 export const PrimaryButton = ({
   children,
   filled = false,
   onPress,
+  style,
+  icon,
+  width = 'big',
 }: PrimaryButtonProps) => (
   <Pressable
-    style={[styles.button, filled ? styles.filled : styles.outlined]}
+    style={[
+      styles.button,
+      styles[width],
+      filled ? styles.filled : styles.outlined,
+      style,
+    ]}
     onPress={onPress}>
     <View style={styles.buttonContent}>
+      {icon && <View style={styles.icon}>{icon}</View>}
       <Text
         style={[styles.text, filled ? styles.filledText : styles.outlinedText]}>
         {children}
@@ -30,39 +41,3 @@ export const PrimaryButton = ({
     </View>
   </Pressable>
 );
-
-const styles = StyleSheet.create({
-  button: {
-    borderRadius: scale * 22,
-    paddingHorizontal: scale * 24,
-    alignItems: 'center',
-    justifyContent: 'center',
-    alignSelf: 'flex-start',
-    height: scale * 34,
-  },
-  filled: {
-    backgroundColor: theme.colors.green.light,
-  },
-  outlined: {
-    borderWidth: 1,
-    backgroundColor: theme.colors.white,
-    borderColor: theme.colors.green.light,
-  },
-  text: {
-    fontSize: scale * 16,
-    fontFamily: 'Mono-Regular',
-  },
-  filledText: {
-    color: theme.colors.white,
-  },
-  outlinedText: {
-    color: theme.colors.green.light,
-  },
-  buttonContent: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  icon: {
-    marginLeft: scale * 8,
-  },
-});

@@ -14,8 +14,11 @@ export const theme = {
     gold: '#F89F34',
   },
   fonts: {
-    regular: 'Inter-Regular',
-    medium: 'Inter-Medium',
+    interRegular: 'Inter-Regular',
+    interMedium: 'Inter-Medium',
+    monoRegular: 'Mono-Regular',
+    monoMediuim: 'Mono-Medium',
+    inter: 'Inter-Regular',
     mono: 'Mono-Regular',
   },
 };

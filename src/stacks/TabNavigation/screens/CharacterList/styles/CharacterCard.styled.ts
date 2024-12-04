@@ -23,33 +23,17 @@ export const styles = StyleSheet.create({
     fontSize: 12,
     marginBottom: 4,
     color: theme.colors.green.medium,
-    fontFamily: theme.fonts.mono,
+    fontFamily: theme.fonts.monoRegular,
   },
   value: {
     fontSize: 16,
     color: theme.colors.green.dark,
-    fontFamily: theme.fonts.medium,
+    fontFamily: theme.fonts.interMedium,
   },
   image: {
     width: 200,
     height: 200,
     borderRadius: 24,
-  },
-  addButton: {
-    position: 'absolute',
-    top: 10,
-    right: 10,
-    backgroundColor: '#2196F3',
-    borderRadius: 20,
-    width: 30,
-    height: 30,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  addButtonText: {
-    color: '#fff',
-    fontWeight: 'bold',
-    fontSize: 18,
   },
   imageContainer: {
     position: 'relative',
@@ -58,5 +42,6 @@ export const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 10,
     right: 10,
+    width: 'auto',
   },
 });

@@ -47,13 +47,21 @@ export const CharacterCard = ({character}: CharacterCardProps) => {
           <Image source={{uri: character.image}} style={styles.image} />
           <View style={styles.likeButtonContainer}>
             <PrimaryButton
-              filled={true}
-              onPress={() => toggleFavorite(character)}>
-              <StarIcon
-                fill={
-                  isFavorite(character) ? theme.colors.gold : theme.colors.white
-                }
-              />
+              filled={false}
+              onPress={() => toggleFavorite(character)}
+              width="small"
+              icon={
+                <StarIcon
+                  fill={
+                    isFavorite(character)
+                      ? theme.colors.gold
+                      : theme.colors.white
+                  }
+                  stroke={
+                    isFavorite(character) ? 'none' : theme.colors.green.dark
+                  }
+                />
+              }>
               <Text>LIKE</Text>
             </PrimaryButton>
           </View>

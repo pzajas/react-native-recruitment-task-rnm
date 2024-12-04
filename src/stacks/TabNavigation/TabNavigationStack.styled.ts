@@ -17,6 +17,6 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     marginTop: 5,
     color: theme.colors.white,
-    fontFamily: theme.fonts.mono,
+    fontFamily: theme.fonts.monoRegular,
   },
 });

@@ -3,11 +3,9 @@ import {
   CharacterDetailsStackNavigationProp,
   CharacterDetailsStackParamList,
 } from '../stacks/CharacterDetails/CharacterDetails.routes';
-
 export interface Origin {
   name: string;
 }
-
 export interface Character {
   id: number;
   name: string;
@@ -17,7 +15,6 @@ export interface Character {
   image: string;
   origin: Origin;
 }
-
 export interface CharacterDetailsScreenProps {
   route: CharacterDetailsScreenRouteProp;
   navigation: CharacterDetailsStackNavigationProp;

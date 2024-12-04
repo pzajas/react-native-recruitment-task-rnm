@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {FlatList, Text, View} from 'react-native';
+import {useState} from 'react';
+import {FlatList, View} from 'react-native';
 import {useCharacterFilter} from '../hooks/useFilters';
 import {useSearch} from '../hooks/useSearchHook';
 import {CharacterCard} from '../stacks/TabNavigation/screens/CharacterList/components/card/CharacterCard';
@@ -10,6 +10,7 @@ import {Character} from '../typescript/characterTypes';
 import {PrimaryButton} from './buttons/PrimaryButton';
 import {NoResultsMessage} from './errors/NoresultsMessage';
 import {LoadingIndicator} from './indicators/LoadingIndicator';
+import {CustomText} from './typography/CustomText';
 
 type CustomCharacterListScreenProps = {
   data: Character[];
@@ -65,8 +66,11 @@ export const CustomCharacterListScreen = ({
         clearSearch={clearSearch}
       />
 
-      <PrimaryButton filled={true} onPress={() => setIsModalVisible(true)}>
-        <Text>FILTER</Text>
+      <PrimaryButton
+        filled={true}
+        onPress={() => setIsModalVisible(true)}
+        width="medium">
+        <CustomText>FILTER</CustomText>
       </PrimaryButton>
 
       {isSearching && <LoadingIndicator />}

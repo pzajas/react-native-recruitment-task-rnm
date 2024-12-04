@@ -30,7 +30,7 @@ export const FilterModal = ({
             toggleFilter={toggleFilter}
           />
           <View style={styles.buttonsContainer}>
-            <PrimaryButton filled={false} onPress={resetFilters}>
+            <PrimaryButton filled={false} onPress={resetFilters} width="small">
               RESET
             </PrimaryButton>
             <PrimaryButton
@@ -38,7 +38,8 @@ export const FilterModal = ({
               onPress={() => {
                 applyFilters();
                 setIsModalVisible(false);
-              }}>
+              }}
+              width="small">
               APPLY
             </PrimaryButton>
           </View>
