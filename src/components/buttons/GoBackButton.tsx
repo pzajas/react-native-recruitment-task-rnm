@@ -1,8 +1,8 @@
 import {Pressable, Text, View} from 'react-native';
-import {BackIcon} from '../../../../../../../assets/icons/BackIcon';
-import {GO_BACK_TEXT} from '../../../../../../constants/commonContsnats';
-import {useNavigateBack} from '../../../../../../hooks/useNavigateBack';
-import {styles} from '../../styles/GoBackButton.styled';
+import {BackIcon} from '../../../assets/icons/BackIcon';
+import {GO_BACK_TEXT} from '../../constants/commonContsnats';
+import {useNavigateBack} from '../../hooks/useNavigateBack';
+import {styles} from './GoBackButton.styled';
 
 export function GoBackButton() {
   const handleGoBack = useNavigateBack();

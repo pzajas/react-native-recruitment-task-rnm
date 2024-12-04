@@ -1,13 +1,13 @@
 import {useNavigation} from '@react-navigation/native';
 import {Image, Pressable, Text, View} from 'react-native';
-import {StarIcon} from '../../../assets/icons/StarIcon';
-import {buttonConstants} from '../../constants/commonContsnats';
-import {useFavorites} from '../../hooks/useFavorites';
-import {MainStackNavigationProp} from '../../stacks/Main/Main.routes';
-import {theme} from '../../theme/theme';
-import {Character} from '../../typescript/characterTypes';
-import {truncateLongString} from '../../utils/truncateLongString';
-import {PrimaryButton} from '../buttons/PrimaryButton';
+import {StarIcon} from '../../../../assets/icons/StarIcon';
+import {buttonConstants} from '../../../constants/commonContsnats';
+import {useFavorites} from '../../../hooks/useFavorites';
+import {MainStackNavigationProp} from '../../../stacks/Main/Main.routes';
+import {theme} from '../../../theme/theme';
+import {Character} from '../../../typescript/characterTypes';
+import {truncateLongString} from '../../../utils/truncateLongString';
+import {PrimaryButton} from '../../buttons/PrimaryButton';
 import {styles} from './CharacterListCard.styled';
 
 interface CharacterCardProps {

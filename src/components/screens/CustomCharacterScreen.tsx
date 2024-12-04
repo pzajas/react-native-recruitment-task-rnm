@@ -6,7 +6,7 @@ import {useSearch} from '../../hooks/useSearchHook';
 import {styles} from '../../stacks/TabNavigation/screens/FavoriteCharacters/FavoriteCharacters.styled';
 import {CustomCharacterListScreenProps} from '../../typescript/characterTypes';
 import {PrimaryButton} from '../buttons/PrimaryButton';
-import {CharacterCard} from '../cards/CharacterListCard';
+import {CharacterCard} from '../cards/characterListCard/CharacterListCard';
 import {NoResultsMessage} from '../errors/NoresultsMessage';
 import {LoadingIndicator} from '../indicators/LoadingIndicator';
 import {FilterModal} from '../modal/FilterModal';

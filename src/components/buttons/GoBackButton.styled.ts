@@ -1,6 +1,6 @@
 import {StyleSheet} from 'react-native';
-import {scale} from '../../../../../config/scale';
-import {theme} from '../../../../../theme/theme';
+import {scale} from '../../config/scale';
+import {theme} from '../../theme/theme';
 
 export const styles = StyleSheet.create({
   goBackRow: {

@@ -1,20 +1,6 @@
-import {
-  GestureResponderEvent,
-  Pressable,
-  Text,
-  View,
-  ViewStyle,
-} from 'react-native';
+import {Pressable, Text, View} from 'react-native';
+import {PrimaryButtonProps} from '../../typescript/buttonTypes';
 import {styles} from './PrimaryButton.styled';
-
-interface PrimaryButtonProps {
-  children: React.ReactNode;
-  filled?: boolean;
-  onPress: (event: GestureResponderEvent) => void;
-  style?: ViewStyle;
-  icon?: React.ReactNode;
-  width?: 'small' | 'medium' | 'big';
-}
 
 export const PrimaryButton = ({
   children,
