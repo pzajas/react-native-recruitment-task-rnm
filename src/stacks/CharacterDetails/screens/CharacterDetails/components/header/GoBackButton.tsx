@@ -1,4 +1,3 @@
-import React from 'react';
 import {Pressable, Text, View} from 'react-native';
 import {BackIcon} from '../../../../../../../assets/icons/BackIcon';
 import {GO_BACK_TEXT} from '../../../../../../constants/commonContsnats';

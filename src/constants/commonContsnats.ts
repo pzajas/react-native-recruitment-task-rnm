@@ -6,6 +6,7 @@ export const GO_BACK_TEXT = 'Go back to Characters List';
 
 export const characterDetailsConstants = {
   ADD_TO_LIKED: 'ADD TO LIKED',
+  REMOVE_FROM_LIKED: 'REMOVE FROM LIKED',
   NAME: 'NAME',
 };
 

@@ -1,9 +1,8 @@
 import {useNavigation} from '@react-navigation/native';
-import {useAtom} from 'jotai';
 import {Image, Pressable, Text, View} from 'react-native';
 import {StarIcon} from '../../../../../../../assets/icons/StarIcon';
 import {PrimaryButton} from '../../../../../../components/buttons/PrimaryButton';
-import {favoritesAtom} from '../../../../../../services/state/state';
+import {useFavorites} from '../../../../../../hooks/useFavorites';
 import {theme} from '../../../../../../styles/theme';
 import {Character} from '../../../../../../typescript/characterTypes';
 import {truncateLongString} from '../../../../../../utils/truncateLongString';
@@ -16,17 +15,7 @@ interface CharacterCardProps {
 
 export const CharacterCard = ({character}: CharacterCardProps) => {
   const {navigate} = useNavigation<MainStackNavigationProp>();
-  const [favorites, setFavorites] = useAtom(favoritesAtom);
-
-  const isFavorite = favorites.some(fav => fav.id === character.id);
-
-  const toggleFavorite = () => {
-    if (isFavorite) {
-      setFavorites(favorites.filter(fav => fav.id !== character.id));
-    } else {
-      setFavorites([...favorites, character]);
-    }
-  };
+  const {isFavorite, toggleFavorite} = useFavorites();
 
   const details = [
     {label: 'NAME', value: character.name},
@@ -57,8 +46,14 @@ export const CharacterCard = ({character}: CharacterCardProps) => {
         <View style={styles.imageContainer}>
           <Image source={{uri: character.image}} style={styles.image} />
           <View style={styles.likeButtonContainer}>
-            <PrimaryButton filled={true} onPress={toggleFavorite}>
-              <StarIcon fill={isFavorite ? 'gold' : theme.colors.white} />
+            <PrimaryButton
+              filled={true}
+              onPress={() => toggleFavorite(character)}>
+              <StarIcon
+                fill={
+                  isFavorite(character) ? theme.colors.gold : theme.colors.white
+                }
+              />
               <Text>LIKE</Text>
             </PrimaryButton>
           </View>
